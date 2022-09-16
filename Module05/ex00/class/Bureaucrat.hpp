@@ -4,6 +4,7 @@
 #include <iostream>
 
 #define C_RED "\033[31m"
+#define END_COLOR "\033[0m"
 #define LOWEST_GRADE 1
 #define HIGHEST_GRADE 150
 
@@ -16,11 +17,11 @@ class Bureaucrat
   public:
     Bureaucrat(void);
     Bureaucrat(const std::string& name, int grade);
-    virtual~Bureaucrat(void);
+    ~Bureaucrat(void);
     Bureaucrat(const Bureaucrat &copy);
     Bureaucrat& operator=(const Bureaucrat& content);
-    const std::string   &getName(void) const;
-    unsigned int   &getGrade(void);
+    std::string const getName(void) const;
+    int  getGrade(void) const;
     void incrementGrade(void);
     void decreaseGrade(void);
     class GradeTooHighException : public std::exception {

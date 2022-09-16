@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name)
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << C_RED << e.what() << std::endl;
+		std::cerr << C_RED << e.what() << END_COLOR << std::endl;
 		this->_grade = 150;
 	}
 }
@@ -46,42 +46,42 @@ void Bureaucrat::incrementGrade(){
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << C_RED << e.what() << std::endl;
+		std::cerr << C_RED << e.what() << END_COLOR << std::endl;
 	}
 }
 
 void Bureaucrat::decreaseGrade(){
 	try
 	{
-		if (_grade + 1 > 150)
+		if ((_grade + 1) > 150)
 			throw Bureaucrat::GradeTooLowException();
 		else
 			this->_grade++;
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << C_RED << e.what() << std::endl;
+		std::cerr << C_RED << e.what() << END_COLOR << std::endl;
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy.getName()), _grade(copy.getGrade())
 {
   *this = copy;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& content)
+Bureaucrat	&Bureaucrat::operator=(const Bureaucrat& content)
 {
     if (this != &content)
 			this->_grade = content._grade;
     return (*this);
 }
 
-int &Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade(void) const
 {
   return (this->_grade);
 }
 
-const std::string &Bureaucrat::getName(void) const
+std::string const Bureaucrat::getName(void) const
 {
   return (this->_name);
 }
