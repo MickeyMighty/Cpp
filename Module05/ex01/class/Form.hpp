@@ -6,7 +6,7 @@ class Form
   private:
     std::string const _nameform;
     bool  _signed;
-    int _gradeforsign;
+    int _gradeforsign; // de 1 a 150
     int _gradeforexec; // de 1 a 150
 
   public:

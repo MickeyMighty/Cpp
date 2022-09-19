@@ -5,8 +5,8 @@
 
 #define C_RED "\033[31m"
 #define END_COLOR "\033[0m"
-#define LOWEST_GRADE 1
-#define HIGHEST_GRADE 150
+#define LOWEST_GRADE 150
+#define HIGHEST_GRADE 1
 
 class Bureaucrat
 {

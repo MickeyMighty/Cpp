@@ -1,6 +1,6 @@
 #include "../class/Form.hpp"
 
-Form::Form(): _name("Random name"), _grade(150)
+Form::Form(): _nameform("Random Form"), _signed(false),  _gradeforsign(150), _gradeforexec(150)
 {
 }
 
@@ -10,29 +10,30 @@ Form::~Form()
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("[Grade Too High Exception]\nGrade 1 is the highest grade, so you can't raise your grade any more.");
+	return ("[Grade Too High Exception]\nGrade 1 is the maximum.");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("[Grade Too Low Exception]\nThe grade 150 is the lowest, so you can't lower the grade any more.");
+	return ("[Grade Too Low Exception]\nThe grade 150 is the minimum.");
 }
 
-Form::Form(const std::string& name, int grade): _name(name)
+Form::Form(const std::string& name, bool signed, int gradeforsign, int gradeforexec): _name(name), _signed(signed), _gradeforsign(gradeforsign), _gradeforexec(gradeforsign)
 {
 	try
 	{
-		if (grade > LOWEST_GRADE)
+		if (gradeforsign > LOWEST_GRADE || gradeforexec > LOWEST_GRADE)
 			throw Form::GradeTooLowException();
-		else if (grade < HIGHEST_GRADE)
+		else if (gradeforsign < HIGHEST_GRADE || gradeforexec < HIGHEST_GRADE)
 			throw Form::GradeTooHighException();
-		else
-			this->_grade = grade;
 	}
 	catch (const std::exception& e)
 	{
 		std::cerr << C_BLUE << e.what() << END_COLOR << std::endl;
-		this->_grade = 150;
+		if (gradeforsign > LOWEST_GRADE || gradeforsign < HIGHEST_GRADE)
+			_gradeforsign = 150;
+		else if (gradeforexec > LOWEST_GRADE || gradeforexec < HIGHEST_GRADE)
+			_gradeforexec = 150;
 	}
 }
 
@@ -88,7 +89,8 @@ std::string const Form::getName(void) const
 
 void signForm()
 {
-    std::cout << this->_ << " signed " << this->_name
+    std::cout << this->_ << " signed " << this->_name;
+		<bureaucrat> couldn’t sign <form> because <reason>.
 }
 
 std::ostream	&operator<<( std::ostream &ostream, const Form &output )
