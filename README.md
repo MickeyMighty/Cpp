@@ -7,3 +7,5 @@
 -  https://projects.intra.42.fr/uploads/document/document/4566/main.cpp
 -  3 - Containers :
 -  https://projects.intra.42.fr/uploads/document/document/5127/main.cpp
+
+https://github.com/amr21code/42_04_cpp05/blob/main/ex01/Bureaucrat.cpp
