@@ -87,10 +87,9 @@ std::string const Form::getName(void) const
   return (this->_name);
 }
 
-void signForm()
+void beSigned()
 {
-    std::cout << this->_ << " signed " << this->_name;
-		<bureaucrat> couldn’t sign <form> because <reason>.
+	;
 }
 
 std::ostream	&operator<<( std::ostream &ostream, const Form &output )
