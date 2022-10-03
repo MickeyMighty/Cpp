@@ -1,5 +1,9 @@
-#ifndef FORM_CLASS
+# ifndef FORM_CLASS
 #define FORM_CLASS
+
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -17,6 +21,7 @@ class Form
     Form& operator=(const Form& content);
     std::string const getName(void) const;
     int  getGrade(void) const;
+    void	beSigned(const Bureaucrat& bureaucrat);
     void incrementGrade(void);
     void decreaseGrade(void);
     class GradeTooHighException : public std::exception {
@@ -28,3 +33,5 @@ class Form
         virtual const char *what(void) const throw();
     };
 };
+
+#endif

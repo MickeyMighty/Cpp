@@ -1,7 +1,8 @@
-#ifndef BUREAUCRAT_CLASS
+# ifndef BUREAUCRAT_CLASS
 #define BUREAUCRAT_CLASS
 
 #include <iostream>
+#include "Form.hpp"
 
 #define C_RED "\033[31m"
 #define C_BLUE "\033[34m"
@@ -23,6 +24,7 @@ class Bureaucrat
     Bureaucrat& operator=(const Bureaucrat& content);
     std::string const getName(void) const;
     int  getGrade(void) const;
+    void	signForm(Form& form) const;
     void incrementGrade(void);
     void decreaseGrade(void);
     class GradeTooHighException : public std::exception {

@@ -87,9 +87,10 @@ std::string const Form::getName(void) const
   return (this->_name);
 }
 
-void beSigned()
+void From::beSigned(const Bureaucrat& bureaucrat)
 {
-	;
+	if (isSigned)
+
 }
 
 std::ostream	&operator<<( std::ostream &ostream, const Form &output )
