@@ -18,7 +18,7 @@ const char* Form::GradeTooLowException::what() const throw()
 	return ("[Grade Too Low Exception]\nThe grade 150 is the minimum.");
 }
 
-Form::Form(const std::string& name, bool signed, int gradeforsign, int gradeforexec): _name(name), _signed(signed), _gradeforsign(gradeforsign), _gradeforexec(gradeforsign)
+Form::Form(const std::string& name, bool signed, int gradeforsign, int gradeforexec): _name(name), _signed(false), _gradeforsign(gradeforsign), _gradeforexec(gradeforexec)
 {
 	try
 	{
@@ -37,10 +37,11 @@ Form::Form(const std::string& name, bool signed, int gradeforsign, int gradefore
 	}
 }
 
-void Form::incrementGrade(){
+void Form::incrementGrade()
+{
 	try
 	{
-		if (_grade - 1 < 1)
+		if (this->_grade - 1 < 1)
 			throw Form::GradeTooHighException();
 		else
 			this->_grade--;
@@ -51,10 +52,11 @@ void Form::incrementGrade(){
 	}
 }
 
-void Form::decreaseGrade(){
+void Form::decreaseGrade()
+{
 	try
 	{
-		if ((_grade + 1) > 150)
+		if ((this->_grade + 1) > 150)
 			throw Form::GradeTooLowException();
 		else
 			this->_grade++;
@@ -77,20 +79,33 @@ Form	&Form::operator=(const Form& content)
     return (*this);
 }
 
-int Form::getGrade(void) const
+bool Form::getSigned(void) const
 {
-  return (this->_grade);
+  return (this->_signed);
+}
+
+int Form::getGradeSign(void) const
+{
+  return (this->_gradeforsign);
+}
+
+int Form::getGradeExec(void) const
+{
+  return (this->_gradeforexec);
 }
 
 std::string const Form::getName(void) const
 {
-  return (this->_name);
+  return (this->_nameform);
 }
 
 void From::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (isSigned)
-
+	if (this->_signed)
+		throw (AlreadySignedException());
+	if (this->_gradeforsign < bureaucrat.getGrade())
+		throw (GradeTooLowException());
+	this->_signed = true;
 }
 
 std::ostream	&operator<<( std::ostream &ostream, const Form &output )

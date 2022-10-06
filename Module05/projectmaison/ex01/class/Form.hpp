@@ -19,8 +19,10 @@ class Form
     ~Form(void);
     Form(const Form &copy);
     Form& operator=(const Form& content);
-    std::string const getName(void) const;
-    int  getGrade(void) const;
+    std::string& getName(void) const;
+    bool getSigned(void) const;
+    int  getGradeSign(void) const;
+    int  getGradeExec(void) const;
     void	beSigned(const Bureaucrat& bureaucrat);
     void incrementGrade(void);
     void decreaseGrade(void);
@@ -29,6 +31,10 @@ class Form
         virtual const char *what(void) const throw();
     };
     class GradeTooLowException : public std::exception {
+    public:
+        virtual const char *what(void) const throw();
+    };
+    class AlreadySignedException : public std::exception {
     public:
         virtual const char *what(void) const throw();
     };

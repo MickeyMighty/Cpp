@@ -1,14 +1,16 @@
 # ifndef BUREAUCRAT_CLASS
 #define BUREAUCRAT_CLASS
 
-#include <iostream>
 #include "Form.hpp"
+#include <iostream>
 
 #define C_RED "\033[31m"
 #define C_BLUE "\033[34m"
 #define END_COLOR "\033[0m"
 #define LOWEST_GRADE 1
 #define HIGHEST_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {
