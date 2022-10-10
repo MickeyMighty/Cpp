@@ -2,6 +2,8 @@
 #define FORM_CLASS
 
 #include "Bureaucrat.hpp"
+#include <string.h>
+#include <iostream>
 
 class Bureaucrat;
 
@@ -9,17 +11,17 @@ class Form
 {
   private:
     std::string const _nameform;
-    bool  _signed;
+    bool  _besigned;
     int _gradeforsign; // de 1 a 150
     int _gradeforexec; // de 1 a 150
 
   public:
     Form(void);
-    Form(const std::string& name, int grade);
+    Form(const std::string& name, int gradeforsign, int gradeforexec);
     ~Form(void);
     Form(const Form &copy);
     Form& operator=(const Form& content);
-    std::string& getName(void) const;
+    const std::string& getName(void) const;
     bool getSigned(void) const;
     int  getGradeSign(void) const;
     int  getGradeExec(void) const;
