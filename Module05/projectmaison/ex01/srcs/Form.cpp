@@ -91,8 +91,11 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 	this->_besigned = true;
 }
 
-std::ostream	&operator<<( std::ostream &ostream, const Form &output )
+std::ostream&	operator<<( std::ostream &ostream, const Form &output )
 {
-	ostream << std::boolalpha << "The form " << output.getName() << ", signed: " << output.getSigned << ", the grade for sign is " << output.getGradeSign() << ", grade to execute " << output.getGradeExec() << std::endl;
+	ostream << std::boolalpha << "The form "
+	<< output.getName() << ", signed : " << output.getSigned()
+	<< ", the grade for sign is " << output.getGradeSign()
+	<< ", grade to execute " << output.getGradeExec() << std::endl;
 	return ostream;
 }

@@ -2,7 +2,9 @@
 #define ROBOTMYREQUESTFORM_CLASS
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <string.h>
+#include <fstream>
 #include <iostream>
 
 class Bureaucrat;
@@ -10,10 +12,7 @@ class Bureaucrat;
 class RobotmyRequestForm
 {
   private:
-    std::string const _nameform;
-    bool  _besigned;
-    int _gradeforsign; // de 1 a 150
-    int _gradeforexec; // de 1 a 150
+    void Robotization();
 
   public:
     RobotmyRequestForm(void);
