@@ -23,6 +23,7 @@ RobotmyRequestForm	&RobotmyRequestForm::operator=(const RobotmyRequestForm& cont
     if (this != &content)
       return (*this);
     return (*this);
+    //nothing to assign in this class, all constants
 }
 
 int RobotmyRequestForm::getTarget(void) const
@@ -30,17 +31,21 @@ int RobotmyRequestForm::getTarget(void) const
   return (this->_target);
 }
 
+int static fail_fiftypourcent = 0;
+
 void execute(Bureaucrat const &excecutor)const
 {
-  if ((int)executor.getGrade( > this->getGradeExec()))
+  if ((int)executor.getGrade() > this->getGradeExec())
     throw (Bureaucrat::GradeTooLowException());
   else if (this->getSigned() == false)
     throw (Form::AlreadySignedException());
-  else
+  else if (fail_fiftypourcent++ % 2)
   {
     std::cout << "*FIOUVVV* *FIOUVVVVVV*" << std::endl;
-    std::cout << getTarget() << " has been robotomized"
+    std::cout << getTarget() << " has been robotomized" << std::endl;
   }
+  else
+    std::cout << getTarget() << "Robotimization failed." << std::endl;
 }
 
 std::ostream&	operator<<( std::ostream &ostream, RobotmyRequestForm *output )

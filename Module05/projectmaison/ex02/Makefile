@@ -1,6 +1,9 @@
 SRCS		=	srcs/main.cpp \
 			srcs/Bureaucrat.cpp \
-			srcs/Form.cpp
+			srcs/Form.cpp \
+			srcs/PresidentialPardonForm.cpp \
+			srcs/RobotmyRequestForm.cpp \
+			srcs/ShrubberyCreationForm.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 

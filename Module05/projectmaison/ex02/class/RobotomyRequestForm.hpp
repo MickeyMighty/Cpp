@@ -1,5 +1,5 @@
-# ifndef ROBOTMYREQUESTFORM_CLASS
-#define ROBOTMYREQUESTFORM_CLASS
+# ifndef PRESIDENTIALPARD_CLASS
+#define PRESIDENTIALPARD_CLASS
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"

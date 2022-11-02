@@ -91,6 +91,11 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 	this->_besigned = true;
 }
 
+void Form::execute(Bureaucrat const &executor)const
+{
+	(void)executor;
+}
+
 std::ostream&	operator<<( std::ostream &ostream, const Form &output )
 {
 	ostream << std::boolalpha << "The form "
