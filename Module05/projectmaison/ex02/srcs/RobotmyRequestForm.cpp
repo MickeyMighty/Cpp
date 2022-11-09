@@ -1,6 +1,6 @@
-#include "RobotmyRequestForm.hpp"
+#include "../class/RobotmyRequestForm.hpp"
 
-RobotmyRequestForm::RobotmyRequestForm(): _name("Random name"), _grade(150)
+RobotmyRequestForm::RobotmyRequestForm(): Form("RobotmyRequestForm", 72, 45), _target("default")
 {
 }
 
@@ -8,12 +8,11 @@ RobotmyRequestForm::~RobotmyRequestForm()
 {
 }
 
-RobotmyRequestForm::RobotmyRequestForm(std::string target): Form("RobotmyRequestForm", 72, 45)
+RobotmyRequestForm::RobotmyRequestForm(std::string target): Form("RobotmyRequestForm", 72, 45), _target(target)
 {
-  *this = src;
 }
 
-RobotmyRequestForm::RobotmyRequestForm(const RobotmyRequestForm &copy): _name(copy.getName()), _grade(copy.getGrade())
+RobotmyRequestForm::RobotmyRequestForm(const RobotmyRequestForm &copy): Form("RobotmyRequestForm", 72, 45), _target(copy._target)
 {
   *this = copy;
 }
@@ -26,14 +25,14 @@ RobotmyRequestForm	&RobotmyRequestForm::operator=(const RobotmyRequestForm& cont
     //nothing to assign in this class, all constants
 }
 
-int RobotmyRequestForm::getTarget(void) const
+std::string RobotmyRequestForm::getTarget(void) const
 {
   return (this->_target);
 }
 
 int static fail_fiftypourcent = 0;
 
-void execute(Bureaucrat const &excecutor)const
+void execute(Bureaucrat const &executor)const
 {
   if ((int)executor.getGrade() > this->getGradeExec())
     throw (Bureaucrat::GradeTooLowException());

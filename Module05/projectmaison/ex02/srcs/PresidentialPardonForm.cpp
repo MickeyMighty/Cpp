@@ -1,38 +1,37 @@
-#include "PresidentialPardonForm.hpp"
+#include "../class/PresidentialPardonForm.hpp"
 
-RobotmyRequestForm::RobotmyRequestForm(): _name("Random name"), _grade(150)
+PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm", 25, 5), _target("default")
 {
 }
 
-RobotmyRequestForm::~RobotmyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-RobotmyRequestForm::RobotmyRequestForm(std::string target): Form("RobotmyRequestForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5), _target(target)
 {
-  *this = src;
 }
 
-RobotmyRequestForm::RobotmyRequestForm(const RobotmyRequestForm &copy): _name(copy.getName()), _grade(copy.getGrade())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy): Form("PresidentialPardonForm", 25, 5), _target(copy._target)
 {
   *this = copy;
 }
 
-RobotmyRequestForm	&RobotmyRequestForm::operator=(const RobotmyRequestForm& content)
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm& content)
 {
     if (this != &content)
       return (*this);
     return (*this);
 }
 
-int RobotmyRequestForm::getTarget(void) const
+std::string PresidentialPardonForm::getTarget(void) const
 {
   return (this->_target);
 }
 
 int static fail_fiftypourcent = 0;
 
-void execute(Bureaucrat const &excecutor)const
+void execute(Bureaucrat const &executor) const
 {
   if ((int)executor.getGrade() > this->getGradeExec())
     throw (Bureaucrat::GradeTooLowException());
@@ -47,7 +46,7 @@ void execute(Bureaucrat const &excecutor)const
     std::cout << getTarget() << "Robotimization failed." << std::endl;
 }
 
-std::ostream&	operator<<( std::ostream &ostream, RobotmyRequestForm *output )
+std::ostream&	operator<<( std::ostream &ostream, PresidentialPardonForm *output )
 {
 	ostream << std::boolalpha << "The form "
 	<< output.getName() << ", signed : " << output->getSigned()

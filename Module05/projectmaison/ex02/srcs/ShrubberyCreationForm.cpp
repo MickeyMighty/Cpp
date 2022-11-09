@@ -1,6 +1,6 @@
-#include "ShrubberyCreationForm.hpp"
+#include "../class/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): _name("Random name"), _grade(150)
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("ShrubberyCreationForm", 145, 137), _target("default")
 {
 }
 
@@ -8,12 +8,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137), _target(target)
 {
-  *this = src;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy): _name(copy.getName()), _grade(copy.getGrade())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy): Form("ShrubberyCreationForm", 145, 137), _target(copy._target)
 {
   *this = copy;
 }
@@ -30,7 +29,7 @@ int ShrubberyCreationForm::getTarget(void) const
   return (this->_target);
 }
 
-void execute(Bureaucrat const &excecutor)const
+void execute(Bureaucrat const &executor)const
 {
   if ((int)executor.getGrade( > this->getGradeExec()))
     throw (Bureaucrat::GradeTooLowException());

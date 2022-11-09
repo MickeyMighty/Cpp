@@ -1,5 +1,5 @@
-# ifndef SHRUBBERY_CLASS
-#define SHRUBBERY_CLASS
+# ifndef SHRUBBERYCREATIONFORM_CLASS
+#define SHRUBBERYCREATIONFORM_CLASS
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
@@ -8,20 +8,21 @@
 #include <iostream>
 
 class Bureaucrat;
+class Form;
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm: public Form
 {
   private:
     const std::string _target;
+    ShrubberyCreationForm(void);
 
   public:
-    ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string target);
+    ShrubberyCreationForm(const std::string target);
     ~ShrubberyCreationForm(void);
-    ShrubberyCreationForm(ShrubberyCreationForm &copy);
+    ShrubberyCreationForm(const ShrubberyCreationForm &copy);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& content);
-    void execute(Bureaucrat const &excecutor)const;
     std::string getTarget(void) const;
+    void execute(Bureaucrat const &executor)const;
 };
 
 std::ostream&	operator<<( std::ostream &ostream, const ShrubberyCreationForm &output );

@@ -7,20 +7,20 @@
 #include <iostream>
 
 class Bureaucrat;
-
 class Form;
-class PresidentialPardonForm
+
+class PresidentialPardonForm: public Form
 {
   private:
     const std::string _target;
+    PresidentialPardonForm(void);
 
   public:
-    PresidentialPardonForm(void);
     PresidentialPardonForm(const std::string target);
     ~PresidentialPardonForm(void);
     PresidentialPardonForm(const PresidentialPardonForm &copy);
     PresidentialPardonForm& operator=(const PresidentialPardonForm& content);
-    std::string& getTarget(void) const;
+    std::string getTarget(void) const;
     void execute(Bureaucrat const &executor) const;
 };
 
