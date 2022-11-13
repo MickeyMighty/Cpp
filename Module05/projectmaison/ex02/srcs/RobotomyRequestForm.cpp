@@ -1,23 +1,23 @@
-#include "../class/RobotmyRequestForm.hpp"
+#include "../class/RobotomyRequestForm.hpp"
 
-RobotmyRequestForm::RobotmyRequestForm(): Form("RobotmyRequestForm", 72, 45), _target("default")
+RobotomyRequestForm::RobotomyRequestForm(): Form("RobotomyRequestForm", 72, 45), _target("default")
 {
 }
 
-RobotmyRequestForm::~RobotmyRequestForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-RobotmyRequestForm::RobotmyRequestForm(std::string target): Form("RobotmyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
-RobotmyRequestForm::RobotmyRequestForm(const RobotmyRequestForm &copy): Form("RobotmyRequestForm", 72, 45), _target(copy._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy): Form("RobotomyRequestForm", 72, 45), _target(copy._target)
 {
   *this = copy;
 }
 
-RobotmyRequestForm	&RobotmyRequestForm::operator=(const RobotmyRequestForm& content)
+RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm& content)
 {
     if (this != &content)
       return (*this);
@@ -25,14 +25,14 @@ RobotmyRequestForm	&RobotmyRequestForm::operator=(const RobotmyRequestForm& cont
     //nothing to assign in this class, all constants
 }
 
-std::string RobotmyRequestForm::getTarget(void) const
+std::string RobotomyRequestForm::getTarget(void) const
 {
   return (this->_target);
 }
 
 int static fail_fiftypourcent = 0;
 
-void execute(Bureaucrat const &executor)const
+void RobotomyRequestForm::execute(Bureaucrat const &executor)const
 {
   if ((int)executor.getGrade() > this->getGradeExec())
     throw (Bureaucrat::GradeTooLowException());
@@ -47,10 +47,10 @@ void execute(Bureaucrat const &executor)const
     std::cout << getTarget() << "Robotimization failed." << std::endl;
 }
 
-std::ostream&	operator<<( std::ostream &ostream, RobotmyRequestForm *output )
+std::ostream&	operator<<( std::ostream &ostream, RobotomyRequestForm *output )
 {
 	ostream << std::boolalpha << "The form "
-	<< output.getName() << ", signed : " << output->getSigned()
+	<< output->getName() << ", signed : " << output->getSigned()
 	<< ", the grade for sign is " << output->getGradeSign()
 	<< ", grade to execute " << output->getGradeExec() << std::endl;
 	return ostream;

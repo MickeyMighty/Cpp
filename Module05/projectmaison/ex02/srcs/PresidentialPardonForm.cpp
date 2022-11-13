@@ -31,7 +31,7 @@ std::string PresidentialPardonForm::getTarget(void) const
 
 int static fail_fiftypourcent = 0;
 
-void execute(Bureaucrat const &executor) const
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
   if ((int)executor.getGrade() > this->getGradeExec())
     throw (Bureaucrat::GradeTooLowException());
@@ -49,7 +49,7 @@ void execute(Bureaucrat const &executor) const
 std::ostream&	operator<<( std::ostream &ostream, PresidentialPardonForm *output )
 {
 	ostream << std::boolalpha << "The form "
-	<< output.getName() << ", signed : " << output->getSigned()
+	<< output->getName() << ", signed : " << output->getSigned()
 	<< ", the grade for sign is " << output->getGradeSign()
 	<< ", grade to execute " << output->getGradeExec() << std::endl;
 	return ostream;

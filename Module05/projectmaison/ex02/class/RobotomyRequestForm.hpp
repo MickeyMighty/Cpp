@@ -10,21 +10,21 @@
 class Bureaucrat;
 class Form;
 
-class RobotmyRequestForm: public Form
+class RobotomyRequestForm: public Form
 {
   private:
     const std::string _target;
-    RobotmyRequestForm(void);
+    RobotomyRequestForm(void);
 
   public:
-    RobotmyRequestForm(const std::string target);
-    ~RobotmyRequestForm(void);
-    RobotmyRequestForm(const RobotmyRequestForm &copy);
-    RobotmyRequestForm& operator=(const RobotmyRequestForm& content);
+    RobotomyRequestForm(const std::string target);
+    ~RobotomyRequestForm(void);
+    RobotomyRequestForm(const RobotomyRequestForm &copy);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& content);
     std::string getTarget(void) const;
     void execute(Bureaucrat const &executor) const;
 };
 
-std::ostream&	operator<<( std::ostream &ostream, const RobotmyRequestForm &output );
+std::ostream&	operator<<( std::ostream &ostream, const RobotomyRequestForm &output );
 
 #endif
