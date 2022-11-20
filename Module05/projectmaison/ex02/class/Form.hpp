@@ -43,6 +43,6 @@ class Form
     };
 };
 
-std::ostream&	operator<<( std::ostream &ostream, const Form &output );
+std::ostream	&operator<<( std::ostream &ostream, Form *output );
 
 #endif

@@ -25,6 +25,6 @@ class ShrubberyCreationForm: public Form
     void execute(Bureaucrat const &executor)const;
 };
 
-std::ostream&	operator<<( std::ostream &ostream, const ShrubberyCreationForm &output );
+std::ostream	&operator<<( std::ostream &ostream, const ShrubberyCreationForm *output );
 
 #endif

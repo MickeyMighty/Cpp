@@ -86,6 +86,19 @@ std::string const Bureaucrat::getName(void) const
   return (this->_name);
 }
 
+void	Bureaucrat::executeForm(Form const & form)
+{
+	// try {
+		if ((int)this->getGrade() >= form.getGradeExec())
+			throw (Bureaucrat::GradeTooLowException());
+		else
+			form.execute(*this);
+	// }
+	// catch (std::exception& e) {
+	// 	std::cout << this->_name << " can't execute the form " << form.getName() << " because " << e.what() << std::endl;
+	// }
+}
+
 void	Bureaucrat::signForm(Form& form) const
 {
 	try {
@@ -97,8 +110,8 @@ void	Bureaucrat::signForm(Form& form) const
 	}
 }
 
-std::ostream	&operator<<( std::ostream &ostream, const Bureaucrat &output )
+std::ostream	&operator<<( std::ostream &ostream, Bureaucrat *output )
 {
-	ostream << output.getName() << " grade " << output.getGrade();
-	return ostream;
+	ostream << output->getName() << " grade " << output->getGrade() << std::endl;
+	return (ostream);
 }

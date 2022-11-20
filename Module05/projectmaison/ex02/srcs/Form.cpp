@@ -96,11 +96,11 @@ void Form::execute(Bureaucrat const &executor)const
 	(void)executor;
 }
 
-std::ostream&	operator<<( std::ostream &ostream, const Form &output )
+std::ostream	&operator<<( std::ostream &ostream, Form *output )
 {
 	ostream << std::boolalpha << "The form "
-	<< output.getName() << ", signed : " << output.getSigned()
-	<< ", the grade for sign is " << output.getGradeSign()
-	<< ", grade to execute " << output.getGradeExec() << std::endl;
+	<< output->getName() << ", signed : " << output->getSigned()
+	<< ", the grade for sign is " << output->getGradeSign()
+	<< ", grade to execute " << output->getGradeExec() << std::endl;
 	return ostream;
 }

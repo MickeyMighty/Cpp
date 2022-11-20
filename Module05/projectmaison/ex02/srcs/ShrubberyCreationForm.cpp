@@ -71,7 +71,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor)const
     }
 }
 
-std::ostream&	operator<<( std::ostream &ostream, ShrubberyCreationForm *output )
+std::ostream	&operator<<( std::ostream &ostream, ShrubberyCreationForm *output )
 {
 	ostream << std::boolalpha << "The form "
 	<< output->getName() << ", signed : " << output->getSigned()

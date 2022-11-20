@@ -25,6 +25,6 @@ class RobotomyRequestForm: public Form
     void execute(Bureaucrat const &executor) const;
 };
 
-std::ostream&	operator<<( std::ostream &ostream, const RobotomyRequestForm &output );
+std::ostream	&operator<<( std::ostream &ostream, RobotomyRequestForm *output );
 
 #endif

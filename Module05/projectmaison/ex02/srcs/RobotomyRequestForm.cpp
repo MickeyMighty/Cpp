@@ -47,7 +47,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor)const
     std::cout << getTarget() << "Robotimization failed." << std::endl;
 }
 
-std::ostream&	operator<<( std::ostream &ostream, RobotomyRequestForm *output )
+std::ostream	&operator<<( std::ostream &ostream, RobotomyRequestForm *output )
 {
 	ostream << std::boolalpha << "The form "
 	<< output->getName() << ", signed : " << output->getSigned()

@@ -46,7 +46,7 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
     std::cout << getTarget() << "Robotimization failed." << std::endl;
 }
 
-std::ostream&	operator<<( std::ostream &ostream, PresidentialPardonForm *output )
+std::ostream	&operator<<( std::ostream &ostream, PresidentialPardonForm *output )
 {
 	ostream << std::boolalpha << "The form "
 	<< output->getName() << ", signed : " << output->getSigned()
